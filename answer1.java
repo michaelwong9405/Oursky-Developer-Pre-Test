@@ -1,16 +1,29 @@
-import java.util.Arrays;
-public class answer1{
+public class HelloWorld{
+    private static boolean testTheCharacterInSet(char text, char[] array){
+        for(int i=0;i<array.length;i++){
+            if(text==array[i])return true;
+        }
+        return false;
+    }
+
+    private static boolean isSubSet(char[] array1,char[] array2){
+        for(int i=0; i<array2.length; i++){
+            boolean temp;
+            temp = testTheCharacterInSet(array2[i],array1);
+            if(temp==false)return false;
+            
+        }
+        return true;
+    }
 
      public static void main(String []args){
-    String Array1[] = {"A", "C", "D", "E"};
-    String Array2[] = {"A", "C", "D", "E"};
-    Object [] arrl1 = {Array1};
-    Object [] arrl2 = {Array2};
-    if(Arrays.equals(arrl1, arrl2)){
-            System.out.println("ture"); 
+        char[] array1 = {'A','D','E'};
+        char[] array2 = {'A','A','D','E'};
+        boolean temp = isSubSet(array1,array2);
+        if(temp == true){
+            System.out.print("True");
         }else{
-            System.out.println("false");
+            System.out.print("False");
         }
-
      }
 }
